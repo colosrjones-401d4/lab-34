@@ -1,12 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-
 //Components
 import Header from '../header';
 import Form from '../form';
 import List from '../list';
 import Details from '../details';
+import Auth from '../auth/auth';
 
 import './todo.scss';
 
@@ -109,9 +109,11 @@ export default function ToDo() {
         todoList={todoList}
       />
       <section className="todo">
-        <Form 
-          addItem={addItem}
-        />
+        <Auth capability="create">
+          <Form 
+            addItem={addItem}
+          />
+        </Auth>
         <List 
           todoList={todoList}
           toggleComplete={toggleComplete}
